@@ -222,9 +222,12 @@ yay -S ghostty
 
 ---
 
-##  Screenshots
+##  Showcase
 
-> *(coming soon)*
+<video src="https://github.com/np4abdou1/dotfiles/raw/main/media/showcase.mp4" controls width="100%">
+  Your browser doesn't support HTML5 video.
+  <a href="https://github.com/np4abdou1/dotfiles/raw/main/media/showcase.mp4">Download MP4</a>
+</video>
 
 ---
 
