@@ -152,18 +152,6 @@ dotfiles/
 
 ---
 
-## 🔒 Security & Privacy Notice
-
-To maintain a secure and reproducible environment, the following sensitive files are excluded from this repository via `.gitignore`:
-*   SSH keys and configurations (`~/.ssh/`)
-*   Git credentials and tokens (`~/.git-credentials`)
-*   Personal API keys, tokens, and local cache files (`~/.claude.json`, `~/.claude/`)
-*   Local shell histories (`.zsh_history`, `.bash_history`, `.python_history`)
-*   Browser profiles and session caches (Chrome, Firefox, Brave)
-*   Visual Studio Code global settings sync profiles
-
----
-
 ## 📝 Credits & Attribution
 
 *   **[Catppuccin Mocha](https://github.com/catppuccin/catppuccin)** — Base GTK Theme
