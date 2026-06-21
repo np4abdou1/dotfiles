@@ -1,0 +1,10 @@
+[General]
+count=1
+rules=efe6613f-dbd2-447b-90d4-8e81572b0e8c
+
+[efe6613f-dbd2-447b-90d4-8e81572b0e8c]
+Description=Application settings for ai.opencode.desktop
+desktopfile=opencode-desktop.desktop
+desktopfilerule=3
+wmclass=ai.opencode.desktop
+wmclassmatch=1

@@ -1,0 +1,24 @@
+# cmatrix configuration
+# sourced by the cmatrix() wrapper function in ~/.zshrc
+
+# Color: green, red, blue, white, yellow, cyan, magenta, black
+# Uses your terminal's magenta palette slot (should match KDE low purple)
+CMATRIX_COLOR=magenta
+
+# Screen update delay (0-10, default 4) — lower = faster
+CMATRIX_DELAY=4
+
+# Bold: -1=no bold, 0=default, 1=occasional, 2=all
+CMATRIX_BOLD=-1
+
+# Asynchronous scroll: 0=off, 1=on
+CMATRIX_ASYNC=1
+
+# Rainbow mode: 0=off, 1=on (overrides CMATRIX_COLOR)
+CMATRIX_RAINBOW=0
+
+# Lambda mode: 0=off, 1=on
+CMATRIX_LAMBDA=0
+
+# Old-style scrolling: 0=off, 1=on
+CMATRIX_OLDSTYLE=0

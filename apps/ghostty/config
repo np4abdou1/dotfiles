@@ -1,0 +1,26 @@
+# Theme controls ANSI colors. Background below overrides only the window background.
+theme = Ghostty Default Style Dark
+
+# Background controls the terminal canvas independently from the theme palette.
+background = #0b0b0b
+foreground = #dcdcdc
+selection-background = #3a3a3a
+selection-foreground = #ffffff
+cursor-color = #dcdcdc
+cursor-text = #0b0b0b
+
+font-size = 12
+font-family = monospace
+font-feature = -calt, -liga, -dlig
+
+background-opacity = 1
+background-blur = false
+minimum-contrast = 1.2
+
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+
+window-padding-x = 10
+window-padding-y = 8
+unfocused-split-opacity = 0.85

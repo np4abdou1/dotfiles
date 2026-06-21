@@ -1,0 +1,12 @@
+# Secrets
+misc/.gitconfig
+misc/.git-credentials
+
+# Temp / cache
+*.zwc
+.DS_Store
+Thumbs.db
+
+# Large generated files
+**/node_modules/
+**/.git/

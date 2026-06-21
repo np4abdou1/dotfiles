@@ -1,0 +1,15 @@
+[Desktop Entry]
+DefaultProfile=use_this_profile_if_u_r_a_coding_agent_ai.profile
+
+[General]
+ConfigVersion=1
+DefaultProfile=use_this_profile_if_u_r_a_coding_agent_ai.profile
+
+[KonsoleWindow]
+ShowWindowTitleOnTitleBar=true
+
+[TabBar]
+NewTabButton=true
+
+[UiSettings]
+ColorScheme=

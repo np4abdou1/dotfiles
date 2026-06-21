@@ -1,0 +1,22 @@
+[CompactMode]
+PreviewSize=64
+
+[DetailsMode]
+PreviewSize=32
+
+[ExtractDialog]
+1280x720 screen: Height=450
+1280x720 screen: Width=857
+1280x720 screen: Window-Maximized=true
+DirHistory[$e]=$HOME/Downloads/New Folder/
+
+[General]
+Version=202
+ViewPropsTimestamp=2026,5,30,4,27,20.363
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled

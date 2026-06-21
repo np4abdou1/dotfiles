@@ -1,0 +1,19 @@
+[Libinput][1739][0][Synaptics TM3276-004]
+NaturalScroll=true
+ScrollFactor=0.1
+ScrollMethod=1
+
+[Libinput][2][10][TPPS/2 IBM TrackPoint]
+PointerAcceleration=0.000
+PointerAccelerationProfile=1
+
+[Libinput][2][7][SynPS/2 Synaptics TouchPad]
+NaturalScroll=true
+PointerAcceleration=0.000
+ScrollFactor=0.3
+
+[Libinput][4292][5][YSPRINGTECH USB OPTICAL MOUSE]
+PointerAccelerationProfile=1
+
+[Mouse]
+cursorSize=
