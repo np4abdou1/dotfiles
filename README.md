@@ -4,6 +4,12 @@
 
 ---
 
+
+https://github.com/user-attachments/assets/30a24a07-456c-457c-bc39-be841414e84d
+
+
+
+
 # `dotfiles` — np4abdou1
 
 My **Arch Linux** + **KDE Plasma 6** + **Hyprland** configuration. Warm gold/olive on dark — the *Jux* theme.
