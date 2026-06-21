@@ -1,247 +1,179 @@
+# 🌌 Jux Dotfiles — Arch Linux + KDE Plasma 6 + Hyprland
+
 <p align="center">
-  <img src="media/showcase.gif" width="100%" alt="Desktop Showcase">
+  <img src="media/showcase.gif" width="100%" alt="Desktop Showcase" style="border-radius: 8px;">
 </p>
 
-<img src="https://img.shields.io/badge/OS-Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white"/>
-<img src="https://img.shields.io/badge/DE-KDE_Plasma_6-3DAEEF?style=for-the-badge&logo=kde&logoColor=white"/>
-<img src="https://img.shields.io/badge/WM-Hyprland-8A2BE2?style=for-the-badge&logo=hyprland&logoColor=white"/>
+<p align="center">
+  <a href="https://archlinux.org"><img src="https://img.shields.io/badge/OS-Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Arch Linux"/></a>
+  <a href="https://kde.org"><img src="https://img.shields.io/badge/DE-KDE_Plasma_6-3DAEEF?style=for-the-badge&logo=kde&logoColor=white" alt="KDE Plasma 6"/></a>
+  <a href="https://hyprland.org"><img src="https://img.shields.io/badge/WM-Hyprland-8A2BE2?style=for-the-badge&logo=hyprland&logoColor=white" alt="Hyprland"/></a>
+</p>
 
 ---
 
+Welcome to my personal, production-grade configuration repository for **Arch Linux**. This setup features a highly customized, dual-environment workspace featuring **KDE Plasma 6** and **Hyprland** (Wayland). 
 
-https://github.com/user-attachments/assets/30a24a07-456c-457c-bc39-be841414e84d
-
-
-
-
-# `dotfiles` — np4abdou1
-
-My **Arch Linux** + **KDE Plasma 6** + **Hyprland** configuration. Warm gold/olive on dark — the *Jux* theme.
+The visual design is governed by the **Jux** theme—a warm, bespoke color palette featuring rich gold and olive accents over deep dark backgrounds. This repository is structured for seamless deployments, quick restorations, and clean configuration management.
 
 ---
 
-##  Quick Start
+## 🎨 Visual Identity (Jux Theme)
 
+| Color | Hex | Sample | Description |
+|---|---|---|---|
+| **Gold** | `#DFC86D` | `rgb(223,200,109)` | Primary accents, active borders, titles |
+| **Olive** | `#A49355` | `rgb(164,147,85)` | Secondary details, file extensions, subtle highlights |
+| **Beige** | `#B4B4B0` | `rgb(180,180,176)` | Primary foreground text |
+| **Muted** | `#595237` | `rgb(89,82,55)` | Selections, inactive borders, secondary text |
+| **Dark** | `#202020` | `rgb(32,32,32)` | Application canvas, main window background |
+
+---
+
+## ⚡ Quick Start & Installation
+
+### 1. Clone the Repository
+Clone this repository into your home directory:
 ```bash
 git clone https://github.com/np4abdou1/dotfiles.git ~/dotfiles
 cd ~/dotfiles
+```
+
+### 2. Install Dependencies
+Ensure you have an AUR helper (e.g., `yay`) installed. Run the following to install all core requirements:
+
+```bash
+# Set up AUR helper (if not already installed)
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si && cd ..
+
+# Install Core packages
+sudo pacman -S kitty fish eza bat fastfetch mpv cava cmatrix rofi dunst sddm kvantum
+sudo pacman -S ttf-jetbrains-mono-nerd noto-fonts noto-fonts-arabic
+
+# Install Modern Terminal (AUR)
+yay -S ghostty-git
+```
+
+### 3. Deploy Configuration
+Use the automated installation script to create symlinks from the repository to your system:
+```bash
 chmod +x install.sh
 ./install.sh
 ```
 
-Then install required packages:
-
-```bash
-# KDE Plasma 6
-sudo pacman -S plasma-meta kde-applications-meta sddm
-
-# Hyprland
-sudo pacman -S hyprland hyprlock hypridle hyprpaper dunst rofi waybar
-
-# Terminal
-sudo pacman -S kitty fish eza bat fastfetch neofetch
-
-# Fonts
-sudo pacman -S ttf-jetbrains-mono-nerd noto-fonts noto-fonts-arabic
-
-# Other
-sudo pacman -S mpv cava cmatrix kvantum
-```
-
 ---
 
-##  Structure
+## 📁 Repository Architecture
 
 ```
 dotfiles/
-├── zsh/                    # ZSH + oh-my-zsh
-│   ├── .zshrc              # Aliases, env, plugins, colors
-│   └── .oh-my-zsh/         # Framework (theme: duellj)
-├── bash/                   # Fallback bash configs
+├── install.sh                  # One-command symlink deploy script
+├── .gitignore                  # Clean filters for secrets and heavy binaries
+├── zsh/                        # ZSH setup
+│   ├── .zshrc                  # Aliases, prompt setup, and interactive configs
+│   └── .oh-my-zsh/             # Framework files (Theme: duellj)
+├── fish/                       # Fish shell configuration (Daily Driver)
+│   └── config.fish             # Bobthefish theme, git abbreviations, custom wrappers
+├── bash/                       # Fallback POSIX shell configs
 │   ├── .bashrc
 │   └── .bash_profile
-├── fish/                   # Fish shell (daily driver)
-│   └── config.fish         # bobthefish theme, aliases, abbrs
-├── plasma/                 # KDE Plasma 6
-│   ├── kdeglobals          # Global color scheme & theme
-│   ├── kwinrc              # KWin: Aurorae JuxDeco decoration
-│   ├── kglobalshortcutsrc  # Custom key binds
-│   ├── kscreenlockerrc     # Lockscreen settings
-│   ├── kcminputrc          # Touchpad, mouse, keyboard
-│   ├── dolphinrc           # Dolphin file manager
-│   ├── konsolerc           # Konsole terminal
-│   ├── katerc              # Kate editor
-│   ├── kwinoutputconfig.json  # Dual-monitor layout
-│   ├── kwinrulesrc         # KWin window rules
-│   ├── aurorae/JuxDeco/    #  Aurorae window decoration
-│   ├── desktoptheme/JuxPlasma/ #  Plasma desktop theme
-│   ├── look-and-feel/      #  Look-and-feel packages
-│   ├── plasmoids/          #  Third-party widgets
-│   ├── konsole/            #  Konsole profiles & color schemes
-│   └── sddm/               #  SDDM astronaut theme
-├── themes/                 # Visual theming
-│   ├── icons/              # McMojave-cursors, Obsidian, WhiteSur
-│   ├── themes/             # GTK theme: Catppuccin-Mocha-Sapphire
-│   ├── Kvantum/            # Kvantum: NoMansSkyJux
-│   ├── gtk-3.0/            # GTK3 settings & CSS
-│   ├── gtk-4.0/            # GTK4 settings & CSS
-│   ├── color-schemes/      # 12+ KDE color schemes
-│   ├── fontconfig/         # Font rendering & Arabic fallback
-│   ├── gtkrc, gtkrc-2.0   # Legacy GTK configs
-│   └── Mystical-Blue-Theme/ # Source theme archive
-├── hyprland/               # Hyprland (alternate WM)
+├── plasma/                     # KDE Plasma 6 Desktop Environment
+│   ├── kdeglobals              # Global colors, fonts, and layout options
+│   ├── kwinrc                  # Window manager & Aurorae decoration rules
+│   ├── kglobalshortcutsrc      # Krohnkite, window tiling, and system keybinds
+│   ├── kscreenlockerrc         # Lockscreen appearance and background
+│   ├── kcminputrc              # Input, mouse acceleration, and touchpad configs
+│   ├── dolphinrc               # Dolphin layout and side-panel configs
+│   ├── konsolerc               # Profile selections for Konsole
+│   ├── kwinrulesrc             # Plasma-specific custom window rules
+│   ├── kwinoutputconfig.json   # Dual-monitor display topology
+│   ├── aurorae/JuxDeco/        # Aurorae window decorations (Custom)
+│   ├── desktoptheme/JuxPlasma/ # Unified Plasma desktop theme (Custom)
+│   ├── look-and-feel/          # Custom global theme components
+│   ├── plasmoids/              # Productive desktop widgets
+│   ├── konsole/                # Konsole profiles and 6 custom color schemes
+│   └── sddm/                   # Custom Astronaut SDDM login theme
+├── themes/                     # GTK, Icon, and Asset configurations
+│   ├── icons/                  # McMojave, Obsidian, and WhiteSur cursor sets
+│   ├── themes/                 # GTK3/4 themes (Catppuccin Mocha Standard Sapphire)
+│   ├── Kvantum/                # Kvantum widget engine rules (NoMansSkyJux)
+│   ├── gtk-3.0/                # GTK3 settings and layout
+│   ├── gtk-4.0/                # GTK4 settings and layout
+│   ├── color-schemes/          # 12 customized color tables (.colors)
+│   └── fontconfig/             # Rendering configurations + Arabic font fallbacks
+├── hyprland/                   # Hyprland Window Manager (Alternate WM)
 │   └── hypr/
-│       ├── hyprland.conf   # Main config, monitor, animations
-│       ├── keybinds.conf   # Super+X kitty, Super+D rofi, etc.
-│       ├── window.conf     # Window rules
-│       ├── hyprlock.conf   # Lockscreen UI
-│       ├── hypridle.conf   # Auto-lock/suspend timings
-│       └── hyprpaper.conf  # Wallpaper
-├── apps/                   # Application configs
-│   ├── dunst/              # Notification daemon
-│   ├── rofi/               # App launcher
-│   ├── fastfetch/          # System fetch (replaces neofetch)
-│   ├── neofetch/           # Legacy system fetch
-│   ├── kitty/              # GPU-accelerated terminal
-│   ├── ghostty/            # Modern terminal emulator
-│   ├── cava/               # Audio visualizer
-│   ├── mpv/                # Media player
-│   └── nvim/               # LazyVim-based Neovim
-├── fonts/                  # Font installation
-├── misc/
-│   ├── bfetch/             # Custom C fetch tool
-│   ├── .cmatrixrc          # Matrix screensaver
-│   ├── .screenrc           # Terminal multiplexer
-│   └── wallpaper.jpg       # Yuji + Choso wallpaper
-├── install.sh              # One-command symlink setup
-├── .gitignore
-└── README.md
+│       ├── hyprland.conf       # Environment, monitor, and window rules
+│       ├── keybinds.conf       # Launchers, navigation, workspace controls
+│       ├── window.conf         # Layout behaviors and borders
+│       ├── hyprlock.conf       # Lockscreen styling
+│       ├── hypridle.conf       # DPMS, locking, and suspend timeouts
+│       └── hyprpaper.conf      # Wallpaper loader
+├── apps/                       # Custom application configurations
+│   ├── dunst/                  # Dunst notification rules and borders
+│   ├── rofi/                   # Rofi dmenu layouts and configs
+│   ├── fastfetch/              # Fastfetch layouts (replaces neofetch)
+│   ├── neofetch/               # Legacy neofetch configs
+│   ├── kitty/                  # Kitty GPU terminal configs
+│   ├── ghostty/                # Ghostty terminal configs
+│   ├── cava/                   # Cava spectrum visualizer configs
+│   ├── mpv/                    # MPV hardware acceleration and player configs
+│   └── nvim/                   # Neovim configurations (LazyVim distribution)
+├── media/                      # Showcase assets
+│   └── showcase.gif            # Top-level desktop showcase GIF
+└── misc/                       # Miscellaneous tools and scripts
+    ├── bfetch/                 # Custom C system fetch utility
+    ├── .cmatrixrc              # Screensaver styling
+    └── .screenrc               # Terminal multiplexer defaults
 ```
 
 ---
 
-##  Color Palette
+## 🛠️ Environment Features & Integrations
 
-```
- Gold     #DFC86D  rgb(223,200,109)  — accents, highlights
- Olive    #A49355  rgb(164,147,85)   — secondary, file extensions
- Beige    #B4B4B0  rgb(180,180,176)  — foreground text
- Dark     #202020  rgb(32,32,32)     — background
- Muted    #595237  rgb(89,82,55)     — selection, less prominent
-```
+### 🖥️ KDE Plasma 6
+*   **Window Tiling:** Pre-configured with bindings for the **Krohnkite** window manager script.
+*   **Aesthetics:** Standardized left-aligned window controls (`SNE` layout) with customized **Aurorae** borders.
+*   **Dual-Monitor Layout:** Optimized for a primary `1920x1080` display (scaled to 1.3x) alongside a secondary `1366x768` display (scaled to 1.25x).
 
----
+### 🌀 Hyprland (Wayland WM)
+*   **Keybinds:** Standardized `SUPER` keybinds for workspace navigation, application spawning, and window actions.
+*   **Performance:** UI animations are disabled globally for instant responsiveness and minimal power consumption.
+*   **System Daemons:** Integrated with `dunst` (notifications), `hyprpaper` (wallpapers), `hypridle` (power management), and `waybar` (status panel).
 
-##  What Goes Where
+### 🐚 Shells & Terminal Emulators
+*   **Fish (Daily Driver):** Enhanced with the `bobthefish` Powerline theme, auto-suggestions, syntax highlighting, and a robust list of git abbreviations.
+*   **Zsh (Fallback):** Backed by the `oh-my-zsh` framework using the `duellj` theme and loaded with standard productivity plugins.
+*   **Ghostty / Kitty:** Pre-configured for GPU-accelerated rendering, utilizing *JetBrains Mono Nerd Font* and customized Jux color profiles.
 
-### KDE Plasma 6
-
-| Setting | File | Location |
-|---------|------|----------|
-| Color scheme | `kdeglobals` | `~/.config/` |
-| Window decoration | `kwinrc` | `~/.config/` |
-| Aurorae theme | `JuxDeco/` | `~/.local/share/aurorae/themes/` |
-| Plasma theme | `JuxPlasma/` | `~/.local/share/plasma/desktoptheme/` |
-| Look & feel | `archsimpleblue` + custom | `~/.local/share/plasma/look-and-feel/` |
-| Widgets | `plasmoids/` | `~/.local/share/plasma/plasmoids/` |
-| Shortcuts | `kglobalshortcutsrc` | `~/.config/` |
-| Monitor layout | `kwinoutputconfig.json` | `~/.config/` |
-| Input devices | `kcminputrc` | `~/.config/` |
-| Screen locker | `kscreenlockerrc` | `~/.config/` |
-| SDDM theme | `sddm-astronaut-theme` | `~/sddm-astronaut-theme/` |
-
-### Hyprland
-
-| Config | Purpose |
-|--------|---------|
-| `hyprland.conf` | Monitor (1920x1080@60, scale 1.5), gaps, borders, input |
-| `keybinds.conf` | Super+X kitty, Super+D rofi, Super+Q kill, volume/brightness |
-| `window.conf` | Window rules & tiling |
-| `hyprlock.conf` | Lockscreen with time, password field |
-| `hypridle.conf` | Lock after 5min, DPMS off after 5:30, suspend after 10min |
-| `hyprpaper.conf` | Wallpaper |
-
-### Shells
-
-**Fish** (daily driver):
-- bobthefish theme with powerline + nerd fonts
-- `eza`, `bat` aliases, git abbreviations
-- custom `cmatrix` and `tgpt` wrapper functions
-- Custom syntax highlighting colors
-
-**ZSH** (fallback):
-- oh-my-zsh with `duellj` theme
-- Plugins: git, sudo, command-not-found, colored-man-pages, extract, fzf
-- zsh-autosuggestions + zsh-syntax-highlighting
-
-### Applications
-
-| App | Config | Highlights |
-|-----|--------|------------|
-| **Kitty** | `kitty.conf` | JetBrainsMono Nerd Font 13px, custom Jux colors, 85% opacity |
-| **Ghostty** | `ghostty/config` | Dark theme, block cursor, no ligatures |
-| **Dunst** | `dunstrc` | Top-right, blue accent, JetBrainsMono, corner radius 0 |
-| **Rofi** | `config.rasi` | App launcher (Super+D in Hyprland) |
-| **Fastfetch** | `config.jsonc` | Gold/beige colors, Nerd Font icons, Arch logo |
-| **MPV** | `mpv.conf` | VAAPI hwdec, large cache |
-| **Cava** | `config` | Audio visualizer |
-| **Neovim** | `nvim/` | LazyVim-based |
-
-### Fonts
-
-130+ fonts in `~/.local/share/fonts/`:
-- **IBM Plex** — full family: Mono, Sans, Condensed, Serif, Arabic, JP, KR, TC, Thai, Devanagari, Hebrew
-- **SF Arabic** — Arabic UI text
-- JetBrainsMono Nerd Font (terminal)
+### 📝 Neovim (nvim)
+*   Fully optimized IDE environment using the **LazyVim** framework. Includes syntax highlighting, lazy-loading plugins, and formatting rules designed for general programming and configuration files.
 
 ---
 
-## 🔐 What's NOT included
+## 🔒 Security & Privacy Notice
 
-These are excluded for security or reproducibility reasons:
-
-- `~/.ssh/`, `~/.git-credentials` — SSH keys & tokens
-- `~/.claude.json`, `~/.claude/` — API keys
-- Browser profiles (Chrome, Brave, Firefox) — use browser sync
-- `.zsh_history`, `.bash_history` — session history
-- `.cache/`, `.bun/`, `.npm/`, `.cargo/` — rebuilt on install
-- `.zcompdump*` — regenerated automatically
-- VS Code settings — use Settings Sync
+To maintain a secure and reproducible environment, the following sensitive files are excluded from this repository via `.gitignore`:
+*   SSH keys and configurations (`~/.ssh/`)
+*   Git credentials and tokens (`~/.git-credentials`)
+*   Personal API keys, tokens, and local cache files (`~/.claude.json`, `~/.claude/`)
+*   Local shell histories (`.zsh_history`, `.bash_history`, `.python_history`)
+*   Browser profiles and session caches (Chrome, Firefox, Brave)
+*   Visual Studio Code global settings sync profiles
 
 ---
 
-## 📦 Packages to Install
+## 📝 Credits & Attribution
 
-### AUR helper (required)
-```bash
-sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
-```
-
-### Must-have
-```bash
-# Core
-sudo pacman -S kitty fish eza bat fastfetch neofetch mpv cava cmatrix rofi dunst
-
-# Fonts
-sudo pacman -S ttf-jetbrains-mono-nerd noto-fonts noto-fonts-arabic
-
-# AUR
-yay -S ghostty
-```
-
----
-
-## 📝 Credits
-
-- **[Catppuccin Mocha](https://github.com/catppuccin/catppuccin)** — GTK theme
-- **[SDDM Astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)** — Login theme
-- **[Mystical Blue Theme](https://github.com/vinceliuice/Mystical-Blue-Theme)** — Original source inspiration for Jux
-- **[oh-my-zsh](https://ohmyz.sh/)** — ZSH framework
-- **[LazyVim](https://www.lazyvim.org/)** — Neovim distribution
+*   **[Catppuccin Mocha](https://github.com/catppuccin/catppuccin)** — Base GTK Theme
+*   **[SDDM Astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)** — SDDM Login Theme
+*   **[Mystical Blue Theme](https://github.com/vinceliuice/Mystical-Blue-Theme)** — Base design inspiration for the Jux theme
+*   **[oh-my-zsh](https://ohmyz.sh/)** — ZSH Framework
+*   **[LazyVim](https://www.lazyvim.org/)** — Neovim Distribution
 
 ---
 
 ## 📄 License
 
-MIT
+This repository is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute it.

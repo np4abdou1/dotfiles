@@ -7,6 +7,12 @@ misc/.git-credentials
 .DS_Store
 Thumbs.db
 
-# Large generated files
+# Large / binary files
+*.mp4
+*.mkv
+*.avi
+*.mov
+
+# Build artifacts
 **/node_modules/
 **/.git/
