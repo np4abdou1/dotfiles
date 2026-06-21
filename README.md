@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="media/showcase.gif" width="100%" alt="Desktop Showcase">
+</p>
+
 <img src="https://img.shields.io/badge/OS-Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white"/>
 <img src="https://img.shields.io/badge/DE-KDE_Plasma_6-3DAEEF?style=for-the-badge&logo=kde&logoColor=white"/>
 <img src="https://img.shields.io/badge/WM-Hyprland-8A2BE2?style=for-the-badge&logo=hyprland&logoColor=white"/>
@@ -225,14 +229,6 @@ sudo pacman -S ttf-jetbrains-mono-nerd noto-fonts noto-fonts-arabic
 # AUR
 yay -S ghostty
 ```
-
----
-
-##  Showcase
-
-Click to play the desktop showcase:
-
-[media/showcase.mp4](media/showcase.mp4)
 
 ---
 
